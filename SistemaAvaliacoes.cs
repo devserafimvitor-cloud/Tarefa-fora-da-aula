@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Linq.Expressions;
 
 class SistemaAvaliacoes
 {
@@ -36,13 +35,68 @@ class SistemaAvaliacoes
         //Agora aqui vou perguntar as 4 notas do aluno para o usuario....
         Console.WriteLine("Agora, porfavor digite as 4 notas do aluno");
         Console.Write("Nota 1 :");
-        nota1 = int.Parse(Console.ReadLine());
-        Console.Write("Nota 2 :");
-        nota2 = int.Parse(Console.ReadLine());
-        Console.Write("Nota 3 :");
-        nota3 = int.Parse(Console.ReadLine());
-        Console.Write("Nota 4 :");
-        nota4 = int.Parse(Console.ReadLine());
+        if(int.TryParse(Console.ReadLine(), out nota1))
+        {
+            if (nota1 < 0 || nota1 > 100)
+            {
+                Console.WriteLine("A nota deve ser entre 0 e 100. Por favor, tente novamente.");
+                return;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Por favor, digite uma nota válida para a Nota 1.");
+            return;
+        }
 
+        //Aqui vou perguntar a nota 2
+        Console.Write("Nota 2: ");
+        if (int.TryParse(Console.ReadLine(), out nota2))
+        {
+            if (nota2 < 0 || nota2 > 100)
+            {
+                Console.WriteLine("A nota deve ser entre 0 e 100. Por favor, tente novamente.");
+                return;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Por favor, digite uma nota válida para a Nota 2.");
+            return;
+        }
+
+        //Aqui vou perguntar a nota 3....
+        Console.Write("Nota 3: ");
+        if (int.TryParse(Console.ReadLine(), out nota3))
+        {
+            if (nota3 <0 || nota3 > 100)
+            {
+                Console.WriteLine("A nota deve ser entre 0 e 100. Por favor, tente novamente.");
+                return;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Por favor, digite uma nota válida para a nota 3.");
+            return;
+        }
+
+        //Aqui vou perguntar a nota...
+        Console.Write("Nota 4:");
+
+        if(int.TryParse(Console.ReadLine(), out nota))
+        {
+            if (nota4 < 0 || nota4 > 100)
+            {
+                Console.WriteLine("A nota deve ser entre 0 e 100. Por favor, tente novamente.");
+                return;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Por favor, digite uma nota válida para a Nota 4");
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        
+       //Aqui vamos calcular a média das notas do aluno....
     }
 }
