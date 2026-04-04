@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 
+
 class SistemaAvaliacoes
 {
     static void Main()
@@ -12,6 +13,8 @@ class SistemaAvaliacoes
         double media;
         string nome;
         string autenticacao;
+        
+
 
         //Agora aqui vou perguntar o nome do aluno para o usuario....
         Console.WriteLine("Por favor digite o nome do aluno...");
@@ -84,7 +87,7 @@ class SistemaAvaliacoes
         //Aqui vou perguntar a nota...
         Console.Write("Nota 4:");
 
-        if(int.TryParse(Console.ReadLine(), out nota))
+        if(int.TryParse(Console.ReadLine(), out nota4))
         {
             if (nota4 < 0 || nota4 > 100)
             {
@@ -95,8 +98,39 @@ class SistemaAvaliacoes
         else
         {
             Console.WriteLine("Por favor, digite uma nota válida para a Nota 4");
+            return;
         }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
         
        //Aqui vamos calcular a média das notas do aluno....
+
+       media = (nota1 + nota2 + nota3 + nota4) / 4.0;
+       string resultado = VerificarAprovacao(media, nota1, nota2, nota3, nota4);
+
+       Console.Write($"Nome do aluno: {nome}\n Média: {media:F2}\n Situação: {resultado}");
+
+       //Aqui vai ser as regras para o aluno ser aprovado ou reprovado....
+    } 
+    static string VerificarAprovacao(double media, int nota1, int nota2, int nota3, int nota4)
+    {
+    if (nota1 >= 70 && nota2 >= 70 && nota3 >= 70 && nota4 >= 70)
+    {
+        return "Aluno aprovado com destaque!";
     }
+    else if (media >= 70)
+    {
+        return "Aluno aprovado com louvor!";
+    }
+    else if (media >= 60)
+    {
+        return "Aluno aprovado!";
+    }
+    else if (media >= 40)
+    {
+        return "Aluno em recuperação!";
+    }
+    else
+    {
+        return "Aluno reprovado!";
+    }
+   }
 }
